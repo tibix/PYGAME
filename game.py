@@ -1,24 +1,32 @@
 import pygame
 import os
 
-WIDHT, HEIGHT = 900, 500
-WIN = pygame.display.set_mode((WIDHT, HEIGHT)) # set the window
+WIDTH, HEIGHT = 900, 500
+WIN = pygame.display.set_mode((WIDTH, HEIGHT)) # set the window
 pygame.display.set_caption("2 V 2 Space Shooting Game")
 
-WHITE =  (255,255,255)
+WHITE = (255,255,255)
 
 FPS = 60
+SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 55, 40
 
 YELLOW_SPACESHIP_IMAGE = pygame.image.load(os.path.join('Assets', 'spaceship_yellow.png'))
-RED_SPACESHIP_IAMGE = pygame.image.load(os.path.join('Assets', 'spaceship_red.png'))
+YELLOW_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(YELLOW_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 90)
+
+RED_SPACESHIP_IMAGE = pygame.image.load(os.path.join('Assets', 'spaceship_red.png'))
+RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(RED_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)
+
 
 def draw_window():
     WIN.fill(WHITE)
-
+    WIN.blit(YELLOW_SPACESHIP, (100, 100))
+    WIN.blit(RED_SPACESHIP, (500, 100))
     pygame.display.update()
 
 
 def main():
+
+
     clock = pygame.time.Clock()
     run = True
     while run:
