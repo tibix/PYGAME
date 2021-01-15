@@ -25,8 +25,6 @@ def draw_window():
 
 
 def main():
-
-
     clock = pygame.time.Clock()
     run = True
     while run:
